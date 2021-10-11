@@ -1,7 +1,6 @@
 # ------------------ Imports ------------------
 import random
 # ---------------------------------------------
-
 class RotateHeader:
 
     DEFAULT_USER_AGENT_LIST = [
@@ -26,13 +25,14 @@ class RotateHeader:
     ]
 
     # get hostname from chrome developers tool; execute --> window.location.hostname
-    REQUEST_HOST_NAME = "raise.sg"
+    REQUEST_HOST_NAME = "www.raise.sg"
     HEADERS = {
-        'Accept-Encoding': 'gzip, deflate, sdch',
-        'Accept-Language': 'en-US,en;q=0.8',
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        'Accept-Encoding': 'gzip, deflate, sdch',        
+        "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8",
+        "Dnt": "1",                                
         'Upgrade-Insecure-Requests': '1',
-        'User-Agent': "",
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'User-Agent': "",        
         'Cache-Control': 'max-age=0',
         'Connection': 'keep-alive',
         "Host": REQUEST_HOST_NAME
