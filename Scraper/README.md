@@ -7,8 +7,20 @@ _multi-threaded scraper that renders multiple threads of execution concurrently 
 ```bash
 $ git clone https://github.com/shahan007/SGCO-Scraper-Oct8
 ```
+<br>
 
-#### Setting up the environment
+#### Either - Just Run the bash file
+
+```bash
+$ cd ./Scraper
+$ bash run.sh
+```
+
+<br>
+
+#### Or - Manual Setup 
+
+##### Setting up the environment
 ```bash
 $ cd ./Scraper
 $ python -m venv venv
@@ -16,7 +28,7 @@ $ source venv/Scripts/activate
 (venv) $ pip install -r requirements.txt
 ```
 
-#### Run the Scraper
+##### Run the Scraper
 ```bash
 (venv) $ python main.py
 ```
