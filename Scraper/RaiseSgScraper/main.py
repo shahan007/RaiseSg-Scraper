@@ -39,6 +39,10 @@ class RaiseScraper:
         return None
     
     def scrape_item(self,tree):
+        """
+        Scrapes each company and retuns the json formatted data
+        """        
+        
         #company title
         co_expression = "//div[@class='content']/h3[@class='title']/text()"
         #returns relative src link for image
@@ -71,6 +75,7 @@ class RaiseScraper:
         return data        
     
     def scrape_items(self,item_abs_links):
+        
         for item_link in item_abs_links:            
             tree = self.request_tree(item_link)
             data = self.scrape_item(tree)            
@@ -78,6 +83,9 @@ class RaiseScraper:
             
     
     def start_scraping(self):
+        """
+        Runs the scraper
+        """        
         print("\n\nstarting scraping ! Please wait for it to end ! \n\n")
         currentUrl = "https://www.raise.sg/directory/directories/default.html"
         while currentUrl:                                    
@@ -96,6 +104,10 @@ class RaiseScraper:
         print("\n\nscraping ended !\n\n")           
     
     def save_to_file(self,path):
+        """
+        Saves the scraped data to a json file 
+        path -> json file to save the data
+        """        
         print("\n\n---Running Data Saving Dont Quit !---\n\n")
         with open(path,mode='w') as outfile:
             json.dump(self.__data, outfile, indent=4)
@@ -120,10 +132,13 @@ class RaiseScraper:
         return re.compile(regex_strip_expression)        
     
     def _convert_rel_to_abs_link(self,link):
+        """
+        Transform a relative link to an absolute link
+        """
         return req.compat.urljoin(type(self).__base_url, link)
     
     def _convert_array_rel_to_abs_links(self,linkArray):
         """
-        Transform the relative links to absolute links
+        Transform an array of relative links to an array of absolute links
         """
         return [ self._convert_rel_to_abs_link(link) for link in linkArray]    
